@@ -1,0 +1,61 @@
+Scenario 4: “Modifica profilo formazione Python su YouTube:”
+
+Utente
+										Sistema
+1)Clicca su Gestione profilo
+
+
+								2)Carica l’interfaccia grafica
+
+3)Click su Modifica profilo 
+(Bottone)
+
+
+						4)Sistema apre GUI (finestra dialogo)pre 											creazione profilo
+5)modifico nome
+
+6)modifico nome e indirizzo canale YouTube
+ e confermo col BOTTONE
+								7)sistema aggiorna lista file
+
+8)aggiungo il file blocco note su Python e confermo
+								9)sistema aggiorna lista file
+
+10)Click su Salva modifiche(bottone)
+
+11)click su Scegli
+
+
+
+12)conferma scelta file
+
+
+								13)sistema aggiorna lista file
+14)salva profilo
+
+
+								15)sistema aggiorna lista profili
+
+
+ Scenario 2: “Modifica o cancella profilo formazione Python su YouTube: file corrotto”
+Utente
+											Sistema
+1)Clicca su Gestione profilo
+
+
+							2)Carica l’interfaccia grafica 								segnalando un file corrotto, carica 							una dialog dove mi dice che il profilo 							chiamato”formazione Python su YouTube” 							è corrotto, e mi propone 									l'eliminazione (si-no).
+3)Click su SI(bottone)
+
+
+							4)Il sistema elimina il profilo,e me 							lo conferma
+     
+			 ALTERNATIVA:NON ELIMINO IL FILE  CORROTTO
+1)Clicca su Gestione profilo
+
+
+							2)Il Sistema carica l’interfaccia 									grafica segnalando un file 								corrotto, carica una dialog dove mi 							dice che il profilo 										chiamato”formazione Python su YouTube” 							è corrotto, e mi propone 									l'eliminazione (si-no).
+3)Click su NO (bottone)
+
+
+							4)Il sistema mantiene  il profilo con 							il file corrotto, e mi suggerisce di 							provare a cambiare il formato del file
+
