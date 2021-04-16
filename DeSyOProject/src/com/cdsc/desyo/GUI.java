@@ -5,6 +5,7 @@ import java.util.List;
 public class GUI {
 	private ProfileManager profileManager;
 	private I18NDTO i18nDTO;
+	// GUI
 	
 	public GUI() {
 		profileManager = new ProfileManager();
