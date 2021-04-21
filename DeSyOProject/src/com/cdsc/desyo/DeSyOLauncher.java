@@ -16,5 +16,4 @@ public class DeSyOLauncher {
 
 //caricare il file di i18n (i18nmanager)
 //caricare il file di configurazione (confmanager)
-
 //caricare i profili (solo i primi n... da ordinare eventualmente)
