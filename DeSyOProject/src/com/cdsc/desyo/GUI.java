@@ -1,14 +1,12 @@
 package com.cdsc.desyo;
 
-import java.util.List;
-
 public class GUI {
-	//private ProfileManager profileManager;
+	// private ProfileManager profileManager;
 	private StartDTO startDTO;
 	// GUI
-	
+
 	public GUI() {
-		//profileManager = new ProfileManager();
+		// profileManager = new ProfileManager();
 		try {
 			startDTO = new StartAction().start();
 		} catch (ConfigurationException e) {
@@ -20,7 +18,7 @@ public class GUI {
 //	public List<Resource> getAllResources(Profile profile) {
 //		return profileManager.getAllResources(profile);
 //	}
-	
+
 	public void render() {
 		System.out.println(startDTO);
 //		String profileLabel = resourceBundle.getString("gui.profile");
