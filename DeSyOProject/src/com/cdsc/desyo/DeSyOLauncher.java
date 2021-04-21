@@ -9,8 +9,7 @@ public class DeSyOLauncher {
 		//caricare i profili (solo i primi n... da ordinare eventualmente)
 		//carico gui (passando i dati precedenti)
 		new GUI();
-		
-		int i = 0;
+		String s = null;
 	}
 
 }
