@@ -2,6 +2,7 @@ package com.cdsc.desyo;
 
 import java.awt.Color;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import javax.swing.AbstractListModel;
 import javax.swing.JButton;
@@ -25,25 +26,33 @@ public class GUI implements ActiveWall {
 	private JButton btnCreaProfilo;
 	private JList listBoxP;
 	private JList listBoxF;
-	private String[] ar = { "Formazione", "Produzione" };
-
+	
+	private ResourceBundle resources;
+	
 	public GUI() {
 		// profileManager = new ProfileManager();
+		StartAction startAction = new StartAction();
 		try {
-			startDTO = new StartAction().start();
+			startDTO = startAction.start();
 		} catch (ConfigurationException e) {
 			System.err.println(e.getMessage());
 		}
-		render();
+		
+		resources = startDTO.resources();
+		//String language = startDTO.configuration().getProperty("language");
+		log();
 		frame = new JFrame("DeSyO");
 		p = new JPanel();
-		saveButton = new JButton("Salva");
+		saveButton = new JButton(getLabel("gui.button.save"));
 		btnAggiungi = new JButton("Aggiungi + ");
 		btnScegli = new JButton("Scegli");
-		listBoxP = new JList(ar);
+		List<String> profileNames = startAction.getProfileNames();
+		listBoxP = new JList(startAction.getProfileNames().toArray());
 		listBoxF = new JList();
 		init();
 	}
+
+
 
 	public void setup() {
 		// setup frame
@@ -82,7 +91,7 @@ public class GUI implements ActiveWall {
 //		return profileManager.getAllResources(profile);
 //	}
 
-	public void render() {
+	public void log() {
 		System.out.println(startDTO);
 //		String profileLabel = resourceBundle.getString("gui.profile");
 //		System.out.println("Label profilo = " + profileLabel);
@@ -104,5 +113,9 @@ public class GUI implements ActiveWall {
 	public void registerListeners() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	private String getLabel(String key) {
+		return resources.getString(key);
 	}
 }
