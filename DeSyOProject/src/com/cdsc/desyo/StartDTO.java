@@ -5,6 +5,7 @@ import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+
 public record StartDTO(Properties configuration, ResourceBundle resources) {
 
 	@Override
