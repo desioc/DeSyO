@@ -8,7 +8,7 @@ public class DeSyOLauncher {
 		//caricare il file di i18n
 		//caricare i profili (solo i primi n... da ordinare eventualmente)
 		//carico gui (passando i dati precedenti)
-		new GUI();
+		new DeSyOSysTray();
 	}
 
 }
