@@ -1,0 +1,13 @@
+<profile>
+ <name> Sviluppo </name>
+	<resources>
+	 <resource>
+	  <name>youtube</name>
+	  <path>www.yuotube.it</path>
+	 </resource>
+	 <resource>
+	  <name>excel</name>
+	  <path>C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE</path>
+	 </resource>
+	</resources>
+</profile>
