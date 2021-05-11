@@ -1,10 +1,11 @@
 package com.cdsc.desyo;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import javax.swing.AbstractListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -12,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.cdsc.areoswing.ActiveWall;
-import com.cdsc.areoswing.Wall;
 
 public class GUI implements ActiveWall {
 	// private ProfileManager profileManager;
@@ -55,14 +55,25 @@ public class GUI implements ActiveWall {
 
 
 	public void setup() {
+		
+		Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+		int x = (int) (screen.getWidth() - (screen.getWidth()) /2);
+		int y = (int) (screen.getHeight() -(screen.getHeight()) /2);
+		int dimXFrame = 759;
+		int dimYFrame = 453;
+		
+		
 		// setup frame
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setBounds(100, 100, 759, 453);
+		frame.setBounds((x-(dimXFrame/2)), (y-(dimYFrame/2)), dimXFrame, dimYFrame);
+
 
 		// setPanel
 		p.setBackground(new Color(255, 255, 255));
 		p.setBorder(new EmptyBorder(5, 5, 5, 5));
 		p.setLayout(null);// Layout Absolute
+		//p.setAlignmentX(java.awt.Component.CENTER_ALIGNMENT); //set X alignment center
+		//p.setAlignmentY(java.awt.Component.CENTER_ALIGNMENT); //set Y alignment center
 		frame.add(p);
 
 		// setup button
