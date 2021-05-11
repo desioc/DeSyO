@@ -18,7 +18,7 @@ public class ProfileManager {
 	}
 	
 	public static List<String> getProfileNames(){
-		File profileFolder = new File("profiles");
+		File profileFolder = new File(System.getProperty("user.dir") + "\\profiles");
 		List<String> profileNames = new ArrayList<>();
 		//if (!(profileFolder.exists() && profileFolder.isDirectory())) lancio eccezione
 		File[] profileFiles = profileFolder.listFiles();
