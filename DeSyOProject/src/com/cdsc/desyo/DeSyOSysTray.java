@@ -14,22 +14,43 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import com.cdsc.areoswing.ActiveWall;
 
 public class DeSyOSysTray implements ActiveWall {
 
-	private List<String> profileNames;
+	private StartDTO startDTO;
+	
+	//private List<String> profileNames;
 	private List<MenuItem> profileItems;
 	private MenuItem closeItem;
 	private PopupMenu popupMenu;
 	private SystemTray tray;
 	private MenuItem separator;
 	private MenuItem profileManagerItem;
+	
+	private ResourceBundle resources;
+	private StartAction startAction;
+	private List<String> profileNames;
+	
 
 	public DeSyOSysTray() {
+		
+		        // sezione aggiunta per caricare i profili
+				// AG-20210511
+				startAction = new StartAction();
+				try {
+					startDTO = startAction.start();
+				} catch (ConfigurationException e) {
+					System.err.println(e.getMessage());
+				}
+				//------------------------------------------
+		
 		initSysTray();
 		init();
+		
+		
 	}
 
 	@Override
@@ -115,13 +136,13 @@ public class DeSyOSysTray implements ActiveWall {
 	}
 
 	private void loadProfileNames() {
-		profileNames = new ArrayList<>();
+		//profileNames = new ArrayList<>(); //eliminata  AG-20210511
 		profileItems = new ArrayList<>();
+		resources = startDTO.resources();
+		
+		//Prende i profili da startAction.getProfileNames() AG-20210511
+		profileNames = startAction.getProfileNames();
 		popupMenu = new PopupMenu();
-		profileNames.add("Python");
-		profileNames.add("Formazione");
-		profileNames.add("Java");
-		profileNames.add("Divertimento");
 		Collections.sort(profileNames);
 	}
 }
