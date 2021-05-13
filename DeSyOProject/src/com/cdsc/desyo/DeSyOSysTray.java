@@ -31,7 +31,7 @@ public class DeSyOSysTray implements ActiveWall {
 	private MenuItem profileManagerItem;
 	
 	private ResourceBundle resources;
-	private StartAction startAction;
+	private static StartAction startAction;
 	private List<String> profileNames;
 	
 
@@ -79,7 +79,7 @@ public class DeSyOSysTray implements ActiveWall {
 	
 	@Override
 	public void registerListeners() {
-		profileManagerItem.addActionListener((e) -> new GUI());
+		profileManagerItem.addActionListener((e) -> new GUI(this.getProfilesNames(), startDTO));
 		//profileManagerItem.addActionListener(this::apriGUI); //reference a metodo
 		
 		// classe anonima
@@ -141,9 +141,13 @@ public class DeSyOSysTray implements ActiveWall {
 		resources = startDTO.resources();
 		
 		//Prende i profili da startAction.getProfileNames() AG-20210511
-		profileNames = startAction.getProfileNames();
+		profileNames = getProfilesNames();
 		popupMenu = new PopupMenu();
 		Collections.sort(profileNames);
+	}
+	
+	public List<String> getProfilesNames(){
+		return startAction.getProfileNames();
 	}
 }
 //public void apriGUI(ActionEvent a) {

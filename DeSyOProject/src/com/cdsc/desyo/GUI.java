@@ -27,17 +27,23 @@ public class GUI implements ActiveWall {
 	private JList listBoxP;
 	private JList listBoxF;
 	
+	private List<String> profileNames;
+	
 	private ResourceBundle resources;
 	
-	public GUI() {
-		// profileManager = new ProfileManager();
-		StartAction startAction = new StartAction();
-		try {
-			startDTO = startAction.start();
-		} catch (ConfigurationException e) {
-			System.err.println(e.getMessage());
-		}
+	public GUI(List<String> profileNames, StartDTO startDTO) {
 		
+		this.profileNames = profileNames;
+		this.startDTO = startDTO;
+		
+		// profileManager = new ProfileManager();
+//		StartAction startAction = new StartAction();
+//		try {
+//			startDTO = startAction.start();
+//		} catch (ConfigurationException e) {
+//			System.err.println(e.getMessage());
+//		}
+//		
 		resources = startDTO.resources();
 		//String language = startDTO.configuration().getProperty("language");
 		log();
@@ -46,8 +52,8 @@ public class GUI implements ActiveWall {
 		saveButton = new JButton(getLabel("gui.button.save"));
 		btnAggiungi = new JButton("Aggiungi + ");
 		btnScegli = new JButton("Scegli");
-		List<String> profileNames = startAction.getProfileNames();
-		listBoxP = new JList(startAction.getProfileNames().toArray());
+		//List<String> profileNames = startAction.getProfileNames();
+		listBoxP = new JList(profileNames.toArray());
 		listBoxF = new JList();
 		init();
 	}
@@ -78,20 +84,20 @@ public class GUI implements ActiveWall {
 
 		// setup button
 		saveButton.setBackground(Color.LIGHT_GRAY);
-		saveButton.setBounds(50, 300, 100, 30);
+		saveButton.setBounds(20, 380, 100, 30);
 		btnAggiungi.setBackground(Color.LIGHT_GRAY);
-		btnAggiungi.setBounds(450, 300, 100, 30);
+		btnAggiungi.setBounds(450, 380, 100, 30);
 		btnScegli.setBackground(Color.LIGHT_GRAY);
-		btnScegli.setBounds(600, 300, 100, 30);
+		btnScegli.setBounds(600, 380, 100, 30);
 
 		p.add(saveButton);
 		p.add(btnAggiungi);
 		p.add(btnScegli);
 
 		// setup ListBox
-		listBoxP.setBounds(50, 50, 200, 200);
+		listBoxP.setBounds(20, 20, 339, 350);
 		listBoxP.setBackground(Color.LIGHT_GRAY);
-		listBoxF.setBounds(450, 50, 255, 200);
+		listBoxF.setBounds(379, 20, 339, 350);
 		listBoxF.setBackground(Color.LIGHT_GRAY);
 		p.add(listBoxP);
 		p.add(listBoxF);
