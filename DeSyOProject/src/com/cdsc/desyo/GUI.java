@@ -17,7 +17,7 @@ import javax.swing.border.EmptyBorder;
 
 import com.cdsc.areoswing.ActiveWall;
 
- 
+  
 public class GUI implements ActiveWall {
 	
 	// Unica istanza della classe - Resa classe singleton 210514 - AG
