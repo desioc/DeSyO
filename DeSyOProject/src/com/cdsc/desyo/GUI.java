@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 import com.cdsc.areoswing.ActiveWall;
@@ -29,10 +30,20 @@ public class GUI implements ActiveWall {
 	// GUI
 	private JPanel p;
 	private JFrame frame;
-	private JButton saveButton;
-	private JButton btnAggiungi;
-	private JButton btnScegli;
-	private JButton btnCreaProfilo;
+	
+	private JButton btnAddProfile;
+	private JButton btnModProfile;
+	private JButton btnDelProfile;
+	
+	private JButton btnAddResource;
+	private JButton btnModResource;
+	private JButton btnDelResource;
+	
+	
+	private JScrollPane scrollPaneP;
+	private JScrollPane scrollPaneF;
+	
+	
 	private JList listBoxP;
 	private JList listBoxF;
 	
@@ -63,12 +74,25 @@ public class GUI implements ActiveWall {
 		log();
 		frame = new JFrame("DeSyO");
 		p = new JPanel();
-		saveButton = new JButton(getLabel("gui.button.save"));
-		btnAggiungi = new JButton("Aggiungi + ");
-		btnScegli = new JButton("Scegli");
+		btnAddProfile = new JButton(getLabel("gui.button.add"));
+		btnModProfile = new JButton(getLabel("gui.button.mod"));
+		btnDelProfile = new JButton(getLabel("gui.button.del"));
+		
+		btnAddResource = new JButton(getLabel("gui.button.add"));
+		btnModResource = new JButton(getLabel("gui.button.mod"));
+		btnDelResource = new JButton(getLabel("gui.button.del"));
+		
 		//List<String> profileNames = startAction.getProfileNames();
 		listBoxP = new JList(profileNames.toArray());
+		scrollPaneP = new JScrollPane();
+		scrollPaneP.setViewportView(listBoxP);
+		listBoxP.setLayoutOrientation(JList.VERTICAL);
+		
 		listBoxF = new JList();
+		scrollPaneF = new JScrollPane();
+		scrollPaneF.setViewportView(listBoxF);
+		listBoxF.setLayoutOrientation(JList.VERTICAL);
+		
 		init();
 	}
 
@@ -99,24 +123,45 @@ public class GUI implements ActiveWall {
 		frame.add(p);
 
 		// setup button
-		saveButton.setBackground(Color.LIGHT_GRAY);
-		saveButton.setBounds(20, 380, 100, 30);
-		btnAggiungi.setBackground(Color.LIGHT_GRAY);
-		btnAggiungi.setBounds(450, 380, 100, 30);
-		btnScegli.setBackground(Color.LIGHT_GRAY);
-		btnScegli.setBounds(600, 380, 100, 30);
+		btnAddProfile.setBackground(Color.LIGHT_GRAY);
+		btnAddProfile.setBounds(20, 377, 100, 30);
+		btnModProfile.setBackground(Color.LIGHT_GRAY);
+		btnModProfile.setBounds(140, 377, 100, 30);
+		btnDelProfile.setBackground(Color.LIGHT_GRAY);
+		btnDelProfile.setBounds(260, 377, 100, 30);
+		
+		btnAddResource.setBackground(Color.LIGHT_GRAY);
+		btnAddResource.setBounds(379, 377, 100, 30);
+		btnModResource.setBackground(Color.LIGHT_GRAY);
+		btnModResource.setBounds(499, 377, 100, 30);
+		btnDelResource.setBackground(Color.LIGHT_GRAY);
+		btnDelResource.setBounds(619, 377, 100, 30);
+		
+		
 
-		p.add(saveButton);
-		p.add(btnAggiungi);
-		p.add(btnScegli);
+		p.add(btnAddProfile);
+		p.add(btnModProfile);
+		p.add(btnDelProfile);
+		
+		p.add(btnAddResource);
+		p.add(btnModResource);
+		p.add(btnDelResource);
 
 		// setup ListBox
 		listBoxP.setBounds(20, 20, 339, 350);
 		listBoxP.setBackground(Color.LIGHT_GRAY);
+		
+		scrollPaneP.setBounds(20, 20, 339, 350);
+		scrollPaneP.setBackground(Color.LIGHT_GRAY);
+						
 		listBoxF.setBounds(379, 20, 339, 350);
 		listBoxF.setBackground(Color.LIGHT_GRAY);
-		p.add(listBoxP);
-		p.add(listBoxF);
+		
+		scrollPaneF.setBounds(379, 20, 339, 350);
+		scrollPaneF.setBackground(Color.LIGHT_GRAY);
+				
+		p.add(scrollPaneP);
+		p.add(scrollPaneF);
 
 		
 		// Aggiunto listener con override di windowClosing
