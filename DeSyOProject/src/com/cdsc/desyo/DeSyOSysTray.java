@@ -22,7 +22,7 @@ public class DeSyOSysTray implements ActiveWall {
 
 	private StartDTO startDTO;
 	
-	//private List<String> profileNames;
+	// private List<String> profileNames;
 	private List<MenuItem> profileItems;
 	private MenuItem closeItem;
 	private PopupMenu popupMenu;
