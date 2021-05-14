@@ -1,5 +1,5 @@
 package com.cdsc.desyo;
-
+ 
 import java.awt.AWTException;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -22,7 +22,7 @@ public class DeSyOSysTray implements ActiveWall {
 
 	private StartDTO startDTO;
 	
-	//private List<String> profileNames;
+	// private List<String> profileNames;
 	private List<MenuItem> profileItems;
 	private MenuItem closeItem;
 	private PopupMenu popupMenu;
@@ -79,7 +79,7 @@ public class DeSyOSysTray implements ActiveWall {
 	
 	@Override
 	public void registerListeners() {
-		profileManagerItem.addActionListener((e) -> new GUI(this.getProfilesNames(), startDTO));
+		profileManagerItem.addActionListener((e) -> GUI.getInstance(this.getProfilesNames(), startDTO));
 		//profileManagerItem.addActionListener(this::apriGUI); //reference a metodo
 		
 		// classe anonima
@@ -149,6 +149,8 @@ public class DeSyOSysTray implements ActiveWall {
 	public List<String> getProfilesNames(){
 		return startAction.getProfileNames();
 	}
+
+	
 }
 //public void apriGUI(ActionEvent a) {
 ////System.out.println();
